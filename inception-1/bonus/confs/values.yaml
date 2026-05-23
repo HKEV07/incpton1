@@ -1,0 +1,60 @@
+global:
+  edition: ce
+  installCertmanager: false
+  hosts:
+    domain: local
+  ingress:
+    configureCertmanager: false
+    class: "nginx"
+  kas:
+    enabled: false
+
+grafana:
+  enabled: false
+
+nginx-ingress:
+  enabled: false
+
+registry:
+  enabled: false
+
+prometheus:
+  install: false
+
+gitlab-runner:
+  install: false
+
+gitlab:
+  webservice:
+    minReplicas: 1
+    maxReplicas: 1
+    resources:
+      requests:
+        memory: 400Mi
+        cpu: 200m
+  sidekiq:
+    resources:
+      requests:
+        memory: 200Mi
+        cpu: 100m
+  toolbox:
+    enabled: false
+
+postgresql:
+  primary:
+    persistence:
+      enabled: false
+    resources:
+      requests:
+        memory: 400Mi
+        cpu: 200m
+
+redis:
+  master:
+    persistence:
+      enabled: false
+    resources:
+      requests:
+        memory: 200Mi
+        cpu: 100m
+
