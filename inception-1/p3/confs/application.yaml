@@ -1,18 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: idouni-iac
+  name: part3-khbouych-app
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/sou200/idouni.git'
-    path: .
-    targetRevision: main
+    repoURL: 'https://github.com/khalidbouychou/iot-p3.git'
+    targetRevision: HEAD
+    path: ./
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: dev
   syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
     automated:
-      selfHeal: true
       prune: true
+      selfHeal: true
